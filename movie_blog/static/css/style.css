@@ -865,9 +865,7 @@ ul.w3layouts-box-list li {
 .grid-img-right a {
     font-size: 0.9em;
     text-transform: uppercase;
-    font-weight: 600;
     text-decoration: none;
-    color: #fff;
     padding: 0;
 
 }
@@ -1561,5 +1559,25 @@ a.move-top span {
 @media(max-width:375px) {}
 
 @media(max-width:320px) {}
+
+
+.pagination__item {
+    transition: all .2s ease-in-out;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    z-index: 1;
+    position: relative;
+    margin: 0 2px;
+    display: -ms-flexbox;
+    display: flex;
+    ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
 
 /*--//responsive--*/

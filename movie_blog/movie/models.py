@@ -18,6 +18,7 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
 
+
 class Actor(models.Model):
     '''Актеры и режисеры'''
     name = models.CharField('Имя', max_length=100)
@@ -32,6 +33,8 @@ class Actor(models.Model):
         verbose_name = 'Aктер и режиссер'
         verbose_name_plural = 'Aктеры и режиссеры'
 
+    def get_absolute_url(self):
+        return reverse('actor_detail', kwargs={'slug': self.name})
 
 class Genre(models.Model):
     '''Жанры'''
@@ -78,6 +81,7 @@ class Movie(models.Model):
     def get_absolute_url(self):
         return reverse('movie_detail', kwargs={"slug": self.url})
 
+
     class Meta:
         verbose_name = 'Фильм'
         verbose_name_plural = 'Фильмы'
@@ -104,11 +108,13 @@ class RatingStar(models.Model):
     value = models.SmallIntegerField('Значение', default=0)
 
     def __str__(self):
-        return self.value
+        return str(self.value)
 
     class Meta:
         verbose_name = 'Звезда рейтинга'
         verbose_name_plural = 'Звезды рейтинга'
+        ordering = ['-value'] # - Вывод звёзд от меньшего к большему
+
 
 
 class Rating(models.Model):
